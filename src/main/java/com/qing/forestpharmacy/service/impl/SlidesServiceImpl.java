@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author baomidou
- * @since 2024-12-06
+ * @since 2024-12-09
  */
 @Service
 public class SlidesServiceImpl extends ServiceImpl<SlidesMapper, Slides> implements ISlidesService {

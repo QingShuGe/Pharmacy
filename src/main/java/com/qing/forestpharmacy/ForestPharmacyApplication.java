@@ -29,5 +29,4 @@ public class ForestPharmacyApplication {
                 InetAddress.getLocalHost().getHostAddress(),
                 env.getProperty("server.port"));
     }
-
 }

@@ -36,11 +36,21 @@ public class Result<T> {
 
     // 成功，无返回数据
     public static <T> Result<T> success() {
-        return success(null);
+        return success("00000");
+    }
+
+    // 成功，根据Code获取结果
+    public static <T> Result<T> success(String code) {
+        return reCode(code);
+    }
+
+    // 成功，无返回数据
+    public static <T> Result<T> success(String msg, T data) {
+        return result("00000", msg, data);
     }
 
     // 根据状态码获取结果
-    public static <T> Result<T> failed(String code) {
+    public static <T> Result<T> reCode(String code) {
         ResultCode resultCode = ResultCode.getByCode(code);
         return result(resultCode.getCode(), resultCode.getMessage(), null);
     }

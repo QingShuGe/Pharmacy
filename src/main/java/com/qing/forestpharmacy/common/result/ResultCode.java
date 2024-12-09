@@ -13,6 +13,7 @@ public enum ResultCode implements IResultCode {
     REPEAT_SUBMIT_ERROR("A0002", "您的请求已提交，请不要重复提交或等待片刻再尝试。"),
 
     USER_LOGIN_ERROR("A0200", "用户登录异常"),
+    USER_LOGIN_OUT("A02004", "退出登录成功"),
 
     USER_NOT_EXIST("A0201", "用户不存在"),
     USER_ACCOUNT_LOCKED("A0202", "用户账户被冻结"),

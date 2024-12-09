@@ -1,6 +1,6 @@
 package com.qing.forestpharmacy.service;
 
-import com.qing.forestpharmacy.pojo.Employee;
+import com.qing.forestpharmacy.pojo.Permission;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author baomidou
- * @since 2024-12-06
+ * @since 2024-12-09
  */
-public interface IEmployeeService extends IService<Employee> {
+public interface IPermissionService extends IService<Permission> {
 
 }

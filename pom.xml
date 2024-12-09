@@ -41,6 +41,56 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+<!--        权限管理-->
+        <!-- Shiro -->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.shiro</groupId>-->
+<!--            <artifactId>shiro-spring-boot-starter</artifactId>-->
+<!--            <classifier>jakarta</classifier>-->
+<!--            <version>2.0.1</version>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.apache.shiro</groupId>-->
+<!--                    <artifactId>shiro-crypto-cipher</artifactId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.apache.shiro</groupId>-->
+<!--                    <artifactId>shiro-crypto-hash</artifactId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.apache.shiro</groupId>-->
+<!--                    <artifactId>shiro-web</artifactId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.apache.shiro</groupId>-->
+<!--                    <artifactId>shiro-spring</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <classifier>jakarta</classifier>
+            <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <classifier>jakarta</classifier>
+            <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+        <!--        hutools-->
+<!--        <dependency>-->
+<!--            <groupId>cn.hutool</groupId>-->
+<!--            <artifactId>hutool-all</artifactId>-->
+<!--            <version>5.7.17</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>

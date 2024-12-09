@@ -1,6 +1,6 @@
 package com.qing.forestpharmacy.mapper;
 
-import com.qing.forestpharmacy.pojo.Employee;
+import com.qing.forestpharmacy.pojo.Role;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author baomidou
- * @since 2024-12-06
+ * @since 2024-12-09
  */
-public interface EmployeeMapper extends BaseMapper<Employee> {
+public interface RoleMapper extends BaseMapper<Role> {
 
 }

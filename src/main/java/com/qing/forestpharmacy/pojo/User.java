@@ -13,7 +13,7 @@ import lombok.Setter;
  * </p>
  *
  * @author baomidou
- * @since 2024-12-06
+ * @since 2024-12-09
  */
 @Getter
 @Setter
@@ -31,6 +31,17 @@ public class User implements Serializable {
      */
     @TableField("`name`")
     private String name;
+
+    /**
+     * 用户名
+     */
+    private String username;
+
+    /**
+     * 密码
+     */
+    @TableField("`password`")
+    private String password;
 
     /**
      * 手机号
@@ -68,4 +79,27 @@ public class User implements Serializable {
      */
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
+
+    /**
+     * 更新时间
+     */
+    @TableField(fill = FieldFill.UPDATE)
+    private LocalDateTime updateTime;
+
+    /**
+     * 创建人
+     */
+    @TableField(fill = FieldFill.INSERT)
+    private Long creator;
+
+    /**
+     * 修改人
+     */
+    @TableField(fill = FieldFill.UPDATE)
+    private Long updateUser;
+
+    /**
+     * 权限
+     */
+    private String roles;
 }

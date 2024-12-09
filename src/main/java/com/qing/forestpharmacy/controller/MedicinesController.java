@@ -1,5 +1,7 @@
 package com.qing.forestpharmacy.controller;
 
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,10 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author baomidou
- * @since 2024-12-06
+ * @since 2024-12-09
  */
 @RestController
-@RequestMapping("/forestpharmacy/medicines")
+@RequestMapping("/medicines")
 public class MedicinesController {
-
+    @RequiresPermissions("medicines:*")
+    @GetMapping("/list")
+    public String list() {
+        return "list";
+    }
 }
