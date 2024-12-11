@@ -18,10 +18,10 @@ public class JwtUtils {
      * @param username
      * @return
      */
-    public static String generateToken(String username) {
+    public static String generateToken(Long userid,String username) {
         JWTCreator.Builder builder = JWT.create();
         return builder.withClaim("username", username)
-//                .withClaim("role",role)
+                .withClaim("userid",userid)
                 .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRE))
                 .sign(Algorithm.HMAC256(SECRET));
     }

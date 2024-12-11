@@ -1,18 +1,16 @@
 package com.qing.forestpharmacy.common.filter;
 
+import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.qing.forestpharmacy.shiro.token.JwtToken;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.io.IOException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 
 public class JwtFilter extends BasicHttpAuthenticationFilter {
 
@@ -29,9 +27,9 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
             // 有认证意愿
             try {
                 this.executeLogin(request, response);
-            } catch (Exception e) {
+            }catch (Exception e) {
                 // token错误
-                responseError(response,e.getMessage());
+                responseError(e.getMessage());
             }
         }
         // 没有认证意愿（可能是登录行为或者为游客访问）,放行
@@ -43,7 +41,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
     @Override
     protected boolean isLoginAttempt(ServletRequest request, ServletResponse response) {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-        String token = httpServletRequest.getHeader("token");
+        String token = httpServletRequest.getHeader("Authorization");
         return token != null;
     }
 
@@ -51,7 +49,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
     @Override
     protected boolean executeLogin(ServletRequest request, ServletResponse response) throws Exception {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-        String token = httpServletRequest.getHeader("token");
+        String token = httpServletRequest.getHeader("Authorization");
 
         JwtToken jwt = new JwtToken(token);
         // 使用自定义的JWTToken而不是默认的UsernamePasswordToken
@@ -101,15 +99,12 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
 //        return true;
 //    }
 
-    // 非法请求跳转
-    private void responseError(ServletResponse response, String msg){
-        HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+//     非法请求跳转
+    private void responseError(String msg){
         try {
-            // msg封装为get请求的请求参数，即拼接在url后面，对于中文信息需要进行utf-8编码
-            msg = URLEncoder.encode(msg, StandardCharsets.UTF_8);
-            // 跳转至控制器unauthorized
-            httpServletResponse.sendRedirect("/error/" + msg);
-        } catch (Exception e) {
+            System.out.println("我报错了"+msg);
+        }
+        catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }

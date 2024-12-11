@@ -52,7 +52,7 @@ public class CodeGenerator {
     /***
      * 代码生成策略配置
      * */
-    private static List<IFill> create = List.of(new Property("createTime", FieldFill.INSERT),new Property("creator", FieldFill.INSERT));
+    private static List<IFill> create = List.of(new Property("createTime", FieldFill.INSERT),new Property("creator", FieldFill.INSERT),new Property("updateTime", FieldFill.INSERT));
     private static List<IFill> update = List.of(new Property("updateTime", FieldFill.UPDATE),new Property("updateUser", FieldFill.UPDATE));
     private static StrategyConfig strategyConfig() {
 

@@ -34,10 +34,10 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("XXX用户系统API")
+                        .title("药店管理系统API")
                         .version("1.0")
 
-                        .description( "Knife4j集成springdoc-openapi示例")
+                        .description( "药店管理系统API接口文档")
                         .termsOfService("http://doc.xiaominfo.com")
                         .license(new License().name("Apache 2.0")
                                 .url("http://doc.xiaominfo.com")));

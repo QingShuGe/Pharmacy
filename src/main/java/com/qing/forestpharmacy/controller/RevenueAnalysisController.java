@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author baomidou
- * @since 2024-12-09
+ * @since 2024-12-10
  */
 @RestController
-@RequestMapping("/forestpharmacy/revenueAnalysis")
+@RequestMapping("/api/revenueAnalysis")
 public class RevenueAnalysisController {
-
+    
 }

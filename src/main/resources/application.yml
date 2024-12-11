@@ -47,7 +47,7 @@ knife4j:
     language: zh_cn
 
 # 文件上传路径
-#file_path:
-#  path: C:\\Users\\86157\\Desktop\\jetbra\\java\\Forest_Pharmacy\\src\\main\\resources\\static\\images
+file_path:
+  path: C:\\Users\\86157\\Desktop\\jetbra\\java\\Forest_Pharmacy\\src\\main\\resources\\static\\images
 
 

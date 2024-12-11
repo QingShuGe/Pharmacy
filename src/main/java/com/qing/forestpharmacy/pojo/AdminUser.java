@@ -18,8 +18,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("address_book")
-public class AddressBook implements Serializable {
+@TableName("admin_user")
+public class AdminUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -29,19 +29,21 @@ public class AddressBook implements Serializable {
     private Long id;
 
     /**
-     * 用户id
+     * 姓名
      */
-    private Long userId;
+    @TableField("`name`")
+    private String name;
 
     /**
-     * 收货人
+     * 用户名
      */
-    private String consignee;
+    private String username;
 
     /**
-     * 性别 0 女 1 男
+     * 密码
      */
-    private Byte sex;
+    @TableField("`password`")
+    private String password;
 
     /**
      * 手机号
@@ -49,49 +51,25 @@ public class AddressBook implements Serializable {
     private String phone;
 
     /**
-     * 省级区划编号
+     * 性别
      */
-    private String provinceCode;
+    private String sex;
 
     /**
-     * 省级名称
+     * 身份证号
      */
-    private String provinceName;
+    private String idNumber;
 
     /**
-     * 市级区划编号
+     * 头像
      */
-    private String cityCode;
+    private String avatar;
 
     /**
-     * 市级名称
+     * 状态 0:禁用，1:正常
      */
-    private String cityName;
-
-    /**
-     * 区级区划编号
-     */
-    private String districtCode;
-
-    /**
-     * 区级名称
-     */
-    private String districtName;
-
-    /**
-     * 详细地址
-     */
-    private String detail;
-
-    /**
-     * 标签
-     */
-    private String label;
-
-    /**
-     * 默认 0 否 1是
-     */
-    private Boolean isDefault;
+    @TableField("`status`")
+    private Integer status;
 
     /**
      * 创建时间
@@ -118,7 +96,7 @@ public class AddressBook implements Serializable {
     private Long updateUser;
 
     /**
-     * 是否删除
+     * 权限
      */
-    private Integer isDeleted;
+    private String roles;
 }

@@ -1,6 +1,6 @@
 package com.qing.forestpharmacy.mapper;
 
-import com.qing.forestpharmacy.pojo.Orders;
+import com.qing.forestpharmacy.pojo.AdminUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author baomidou
  * @since 2024-12-10
  */
-public interface OrdersMapper extends BaseMapper<Orders> {
+public interface AdminUserMapper extends BaseMapper<AdminUser> {
 
 }

@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author baomidou
- * @since 2024-12-09
+ * @since 2024-12-10
  */
 public interface ICategoryService extends IService<Category> {
-
+    boolean removeCategoryById(Long id);
 }

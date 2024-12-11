@@ -8,7 +8,6 @@ import java.util.List;
 
 @Data
 public class SecurityDTO {
-    private String username;
     /**
      * 用户拥有的角色
      */

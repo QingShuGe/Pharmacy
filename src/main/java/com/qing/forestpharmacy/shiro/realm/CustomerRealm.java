@@ -1,12 +1,12 @@
 package com.qing.forestpharmacy.shiro.realm;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.qing.forestpharmacy.common.utils.JwtUtils;
 import com.qing.forestpharmacy.pojo.Permission;
 import com.qing.forestpharmacy.pojo.Role;
-import com.qing.forestpharmacy.pojo.User;
-import com.qing.forestpharmacy.service.IPermissionService;
+import com.qing.forestpharmacy.service.IAdminUserService;
 import com.qing.forestpharmacy.service.IUserService;
 import com.qing.forestpharmacy.shiro.entity.SecurityDTO;
 import com.qing.forestpharmacy.shiro.token.JwtToken;
@@ -31,7 +31,7 @@ import java.util.List;
 public class CustomerRealm extends AuthorizingRealm {
 
     @Autowired
-    private IUserService userService;
+    private IAdminUserService adminUserService;
 
     // 自定义的token
     @Override
@@ -45,7 +45,7 @@ public class CustomerRealm extends AuthorizingRealm {
         String username = JwtUtils.getClaim(principalCollection.toString(), "username");
 
         // 从数据库中获取用户角色和权限信息
-        SecurityDTO userRole = userService.getRolename(username);
+        SecurityDTO userRole = adminUserService.getRolename(username);
 
         //当前用户的角色信息，权限信息
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
@@ -77,10 +77,8 @@ public class CustomerRealm extends AuthorizingRealm {
         // 获取token
         String token = (String) authenticationToken.getCredentials();
 
-        // 根据token获得登录用户的username
-//        String username = JwtUtils.getClaim(token, "username");
-//
-//
+        JwtUtils.verify(token);
+
 //        if (userService.getOne(new LambdaQueryWrapper<User>().eq(User::getUsername, username).last("LIMIT 1")) == null) {
 //            throw new AuthenticationException("用户不存在");
 //        }

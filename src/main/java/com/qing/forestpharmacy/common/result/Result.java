@@ -19,6 +19,10 @@ public class Result<T> {
 
         private long total;
 
+        private long page;
+
+        private long page_size;
+
     }
     //封装接口返回结果
     private static <T> Result<T> result(String code, String msg, T data) {
@@ -39,14 +43,14 @@ public class Result<T> {
         return success("00000");
     }
 
-    // 成功，根据Code获取结果
-    public static <T> Result<T> success(String code) {
-        return reCode(code);
-    }
 
-    // 成功，无返回数据
+    // 成功
     public static <T> Result<T> success(String msg, T data) {
         return result("00000", msg, data);
+    }
+    // 成功，无返回数据
+    public static <T> Result<T> success(String msg) {
+        return result("00000", msg, null);
     }
 
     // 根据状态码获取结果
@@ -59,12 +63,17 @@ public class Result<T> {
     public static <T> Result<T> failed(String code, String msg) {
         return result(code, msg, null);
     }
-
+    // 失敗
+    public static <T> Result<T> failed(String msg) {
+        return result("00000", msg, null);
+    }
     // 分页
     public static <T> Result<Data<T>> PageRresult(IPage<T> page) {
         Data<T> data = new Data<>();
         data.setList(page.getRecords());
         data.setTotal(page.getTotal());
+        data.setPage(page.getCurrent());
+        data.setPage_size(page.getSize());
 
         return result(ResultCode.SUCCESS.getCode(),"", data);
     }

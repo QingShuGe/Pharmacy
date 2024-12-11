@@ -13,7 +13,7 @@ import lombok.Setter;
  * </p>
  *
  * @author baomidou
- * @since 2024-12-09
+ * @since 2024-12-10
  */
 @Getter
 @Setter
@@ -66,12 +66,12 @@ public class Category implements Serializable {
     /**
      * 记录药品类型数据的最后更新时间
      */
-    @TableField(fill = FieldFill.UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
     /**
      * 最后更新该药品类型数据的用户标识
      */
-    @TableField(fill = FieldFill.UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Long updateUser;
 }
